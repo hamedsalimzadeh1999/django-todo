@@ -1,0 +1,12 @@
+
+{% extends 'base.html' %}
+{% block content%}
+<div class="card" style="width: 18rem;">
+<ul class="list-group ">
+{% for task in mytask %}
+<li class="list-group-item">{{task.TaskTitle}}</li>
+{% endfor %}
+  
+  </ul>
+</div>
+{% endblock%}
