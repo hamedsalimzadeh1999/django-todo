@@ -1,6 +1,6 @@
 from django.urls import path , include
-from .views import index,addtask
+from .views import index,DeletTask
 urlpatterns = [
     path('' , index),
-    path("add", addtask, name="add"),
+    path("edit/<int:taskid>/", DeletTask, name="DeletTask"),
 ]
