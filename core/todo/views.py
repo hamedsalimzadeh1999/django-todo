@@ -6,13 +6,12 @@ def index(request):
     context ={'mytask':MyTodoList}
     return render(request, 'index.html' , context)
 
+
 def AddTask(request):
     mytask = request.POST['task']
-    task(TaskTitle=mytask).save()
+    task(TaskTitle = mytask).save()
     return redirect(request.META['HTTP_REFERER'])
 
-
-
-def DeletTask(request,taskid):
+def DeleteTask(request,taskid):
     task.objects.filter(id=taskid).delete()
     return redirect(request.META['HTTP_REFERER'])

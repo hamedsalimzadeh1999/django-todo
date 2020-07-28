@@ -1,19 +1,19 @@
 
 {% extends 'base.html' %}
 {% block content%}
-{% csrf_token %}
-<form>
-<input type="text" placeholder="type task ">
 
-
-
+<form method="POST" action="./add/"> 
+  {% csrf_token %}
+<input type="text" placeholder="type task" name="task">
+<input type="submit" name="" class="btn btn-success">
 
 </form>
+
 <div class="card" style="width: 18rem;">
 <ul class="list-group ">
 {% for task in mytask %}
 <li class="list-group-item">{{task.TaskTitle}}
- <a href="/edit/{{task.id}}/" class="btn btn-danger">Delete</a>
+ <a href="/DeleteTask/{{task.id}}/" class="btn btn-danger">Delete</a>
  
  
 </li>
