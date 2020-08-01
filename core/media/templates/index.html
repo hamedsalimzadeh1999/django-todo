@@ -1,7 +1,7 @@
 
 {% extends 'base.html' %}
 {% block content%}
-
+{% load static %}
 <form method="POST" action="./add/"> 
   {% csrf_token %}
 <input type="text" placeholder="type task" name="task">
@@ -14,11 +14,18 @@
 {% for task in mytask %}
 <li class="list-group-item">{{task.TaskTitle}}
  <a href="/DeleteTask/{{task.id}}/" class="btn btn-danger">Delete</a>
+ <a href="/edit/{{task.id}}/" class="btn btn-warning">Edit</a>
  
  
 </li>
 {% endfor %}
   
   </ul>
+
+
+
 </div>
+
+
 {% endblock%}
+

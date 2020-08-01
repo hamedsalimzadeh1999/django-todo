@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<form action="/edit/{{taskid}}/action/" method="POST">
+    {% csrf_token %}
+
+<input type="text" class="form" placeholder="type hear" name="task">
+<input type="submit" class="btn btn-info">
+    
+</form>
+
+
+
+{% endblock content %}
