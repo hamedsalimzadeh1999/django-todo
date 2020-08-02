@@ -4,23 +4,40 @@
 {% load static %}
 <form method="POST" action="./add/"> 
   {% csrf_token %}
-<input type="text" placeholder="type task" name="task">
+<input type="text" placeholder="task title" name="task">
+<input type="text" placeholder="task info" name="taskinfo">
 <input type="submit" name="" class="btn btn-success">
 
 </form>
 
 <div class="card" style="width: 18rem;">
-<ul class="list-group ">
 {% for task in mytask %}
-<li class="list-group-item">{{task.TaskTitle}}
- <a href="/DeleteTask/{{task.id}}/" class="btn btn-danger">Delete</a>
- <a href="/edit/{{task.id}}/" class="btn btn-warning">Edit</a>
+<ul class="list-group ">
+<li class="list-group-item">TaskTitle: {{task.TaskTitle}}
+
  
  
 </li>
+<li class="list-group-item">Task info : 
+  <br>
+  {{task.TaskInfo}}
+
+ 
+</li>
+<li class="list-group-item">Task date : 
+  {{task.Date}}
+
+ 
+</li>
+<li class="list-group-item">
+
+  <a href="/DeleteTask/{{task.id}}/" class="btn btn-danger">Delete</a>
+  <a href="/edit/{{task.id}}/" class="btn btn-warning">Edit</a>
+</li>
+  </ul>
+  <br>
 {% endfor %}
   
-  </ul>
 
 
 

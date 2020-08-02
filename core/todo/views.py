@@ -9,7 +9,8 @@ def index(request):
 
 def AddTask(request):
     mytask = request.POST['task']
-    task(TaskTitle = mytask).save()
+    taskinfo = request.POST['taskinfo']
+    task(TaskTitle = mytask , TaskInfo=taskinfo).save()
     return redirect(request.META['HTTP_REFERER'])
 
 def DeleteTask(request,taskid):
@@ -22,7 +23,9 @@ def EditTask(request , taskid):
 
 def Edittaskaction (request , taskid):
     edittask = request.POST['task']
+    edittaskinfo = request.POST['taskinfo']
     todo = task.objects.filter(id = taskid)[0]
     todo.TaskTitle = edittask
+    todo.TaskInfo = edittaskinfo
     todo.save()
     return redirect('index')
